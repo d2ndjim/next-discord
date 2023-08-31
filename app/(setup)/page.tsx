@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { initialProfile } from "@/lib/initial-profile";
 import { db } from "@/lib/db";
+import { InitialModal } from "@/components/modals/initial-modal";
 
 const Home = async () => {
   const profile = await initialProfile();
@@ -19,11 +20,7 @@ const Home = async () => {
     return redirect(`/servers/${server.id}`);
   }
 
-  return (
-    <main className="flex flex-col min-h-screen items-center justify-between p-24">
-      Hello 🤡{" "}
-    </main>
-  );
+  return <InitialModal />;
 };
 
 export default Home;
